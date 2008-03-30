@@ -53,6 +53,12 @@ class Twitter2gChat:
            
            #update the current status
             curr_status = node.getChildren()[0]
+            
+            #no need to update
+            if curr_status.getData() == self.twitter_status:
+                print 'status is already tweet'
+                sys.exit(0)
+                
             curr_status.setData(self.twitter_status)
 
             #set response
