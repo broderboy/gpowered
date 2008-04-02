@@ -108,7 +108,7 @@ class Twitter2gChat:
         self.twitter_status = api.GetUserTimeline(self.twitter_login, 1)[0].text
         
         #don't want to use replies
-        if self.twitter_status.find('@') >= 0:
+        if self.twitter_status.find('@') == 0:
             sys.exit(0)
 
 t = Twitter2gChat()
