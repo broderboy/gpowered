@@ -1,15 +1,29 @@
+############
+from django.core.management import setup_environ
+import sys
+sys.path.append('/home/broderboy/workspace/')
+sys.path.append('/home/gpowered/gpowered-read-only/')
+from gPowered import settings
+
+setup_environ(settings)
+
+############
+
+from gPowered.core.models import ServiceLogin, Service
 import sys, xmpp, os, twitter
 
 class Twitter2gChat:
     
-    twitter_login = os.environ['TWITTER_LOGIN']
-    twitter_pass = os.environ['TWITTER_PASS']
-    google_login = os.environ['GOOGLE_LOGIN']
-    google_pass = os.environ['GOOGLE_PASS']
-
-    twitter_status = None
-    updated = False
-    catches = 0
+    def __init__(self):
+        self.twitter_service = Service.objects.get(name='Twitter')
+        twitter_service_login = self.twitter_service.servicelogin_set.all()[:1][0]
+        
+        self.ts_login = twitter_service_login.username
+        self.ts_pass = twitter_service_login.password
+    
+        self.twitter_status = None
+        self.updated = False
+        self.catches = 0
     
     #keep looping and wait for xmpp response
     def GoOn(self,conn):
@@ -71,22 +85,22 @@ class Twitter2gChat:
             print 'end of iqHandler\n\n'
 
     #start talking to the server and update status
-    def updateGtalkStatus(self):
+    def updateGtalkStatus(self, google_username, google_pass):
         
         #connect
-        jid=xmpp.protocol.JID(self.google_login)
+        jid=xmpp.protocol.JID(google_username)
         cl=xmpp.Client(jid.getDomain(),debug=[])
         if not cl.connect(('talk.google.com',5222)):
             print 'Can not connect to server.'
             sys.exit(1)
-        if not cl.auth(jid.getNode(),self.google_pass):
+        if not cl.auth(jid.getNode(),google_pass):
             print 'Can not auth with server'
             sys.exit(1)
             
         #build query to get current status
         iq = xmpp.Iq()
         iq.setType('get')
-        iq.setTo('timothy.broder@gmail.com')
+        iq.setTo(google_username)
 
         node = xmpp.Node()
         node.setName('query')
@@ -103,14 +117,33 @@ class Twitter2gChat:
         cl.disconnect()
         
     #get current twitter status
-    def getTwitterStatus(self):
-        api = twitter.Api(username=self.twitter_login, password=self.twitter_pass)
-        self.twitter_status = api.GetUserTimeline(self.twitter_login, 1)[0].text
+    def getTwitterStatus(self, username):
+        api = twitter.Api(username=self.ts_login, password=self.ts_pass)
+        twitter_status = api.GetUserTimeline(username, 1)[0].text
         
         #don't want to use replies
-        if self.twitter_status.find('@') == 0:
-            sys.exit(0)
+        if twitter_status.find('@') == 0:
+            return ''
+        else:
+            return twitter_status
+    
+    def loop(self):
+        gtalk_service = Service.objects.get(name='google')
+        for user in self.twitter_service.users.all():
+    
+            try:
+                twitter_account =  user.extaccount_set.get(service=self.twitter_service)
+                google_account =  user.extaccount_set.get(service=gtalk_service)
+
+                self.twitter_status = self.getTwitterStatus(twitter_account.username)
+                
+                if self.twitter_status != '':
+                    self.updateGtalkStatus(google_account.username, google_account.password)
+                
+            except:
+                pass
 
 t = Twitter2gChat()
-t.getTwitterStatus()
-t.updateGtalkStatus()
+t.loop()
+#t.getTwitterStatus()
+#t.updateGtalkStatus()
