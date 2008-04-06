@@ -3,13 +3,13 @@ from django.core.management import setup_environ
 import sys
 sys.path.append('/home/broderboy/workspace/')
 sys.path.append('/home/gpowered/gpowered-read-only/')
-from gPowered import settings
+from gpowered import settings
 
 setup_environ(settings)
 
 ############
 
-from gPowered.core.models import ServiceLogin, Service
+from gpowered.core.models import ServiceLogin, Service
 import sys, xmpp, os, twitter
 
 class Twitter2gChat:
