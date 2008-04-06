@@ -13,16 +13,6 @@ class Service(models.Model):
     class Admin:
         pass
     
-#class IntAccount(models.Model):
-#    user = models.ForeignKey(User)
-#    service = models.ForeignKey(Service)
-    
-#    def __str__(self):
-#        return '%s: %s' % (self.user, self.service.name)
-    
-#    class Admin:
-#        pass'''
-    
 class ExtAccount(models.Model):
     user = models.ForeignKey(User)
     service = models.ForeignKey(Service)
