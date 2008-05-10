@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Update{% endblock %}
+{% block content %}
+{% if name %}
+updating: {{ name }}<br>
+{% if twitter %}Twitter account: {{ twitter }}<br>{% endif %}
+{% if status %}Twitter Status: {{ status }}<br>{% endif %}
+{% endif %}
+{{ url }}
+{% endblock %}
