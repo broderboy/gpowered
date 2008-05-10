@@ -1,0 +1,11 @@
+{% if not error %}
+
+{{ login }}<br>
+{{ msg }}<br>
+
+{% else %}
+{{ error }}
+{% endif %}
+
+<br><br>
+{% if debug %}{{ debug }}{% endif %}
