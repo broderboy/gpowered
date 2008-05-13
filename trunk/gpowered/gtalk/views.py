@@ -2,7 +2,7 @@
 
 import xmpp,sys
 from django.shortcuts import render_to_response
-import rsa
+import gpowered.rsa
 from gpowered.core.models import RsaKey
 
 class gTalkStatus:    
