@@ -11,6 +11,7 @@ setup_environ(settings)
 
 from gpowered.core.models import ServiceLogin, Service
 import sys, xmpp, os, twitter
+from time import gmtime, strftime
 
 class Twitter2gChat:
     
@@ -41,6 +42,7 @@ class Twitter2gChat:
     #handle responses
     def iqHandler(self, conn,iq_node):
         print 'in iqHandler'
+        print strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
         self.catches = self.catches + 1
         
         #we have looped enough, die
