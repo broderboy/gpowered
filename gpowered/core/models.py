@@ -36,3 +36,10 @@ class ServiceLogin(models.Model):
     
     class Admin:
         pass
+    
+class RsaKey(models.Model):
+    name = models.CharField(maxlength=32)
+    key = models.CharField(maxlength=512)
+    
+    class Admin:
+        pass
