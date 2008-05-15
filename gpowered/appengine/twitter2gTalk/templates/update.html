@@ -6,5 +6,7 @@ updating: {{ name }}<br>
 {% if twitter %}Twitter account: {{ twitter }}<br>{% endif %}
 {% if status %}Twitter Status: {{ status }}<br>{% endif %}
 {% endif %}
-{{ url }}
+{{ url.status_code }}<br>{{url.content}}
+
+{{ link }}
 {% endblock %}

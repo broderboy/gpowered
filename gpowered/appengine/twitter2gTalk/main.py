@@ -67,12 +67,13 @@ class SettingsHander(BaseRequestHandler):
         if len(errors) == 0:
             user = Account.gql('WHERE user = :1', current_user).get()
             if not user:
-                user = Account(user=current_user, gPass=password, twitter=twitter, active=True)
+                user = Account(user=current_user, gPass=password, twitter=twitter, active=True, counts=0)
             else:
                 user.gPass = password
                 user.twitter = twitter
                 user.active = True
                 
+            
             user.put()
             errors = None
         
@@ -104,7 +105,7 @@ class TweetHander(BaseRequestHandler):
         gp_pub = RsaKey.gql("WHERE name = :1", 'gp_pub').get()
         gae_priv = RsaKey.gql("WHERE name = :1", 'gae_priv').get()
            
-        gpowered_gtalk_url = 'http://localhost:8000/gtalk/update/%s/'
+        gpowered_gtalk_url = 'http://gpowered.net/g/gtalk/update/%s/'
         
         enc = '%s!gpowered!%s!gpowered!%s' % (email, password, msg)
         gp_pubkey = self.makePubKey(gp_pub.keystring)
@@ -131,13 +132,16 @@ class TweetHander(BaseRequestHandler):
         twitter_status = self.getTwitterStatus(user.twitter) 
         
         gpowered_url = self.encryptGtalk(current_user.email(), user.gPass, twitter_status)
-        #result = urlfetch.fetch(str(gpowered_url))     
+        result = urlfetch.fetch(str(gpowered_url)) 
+        user.counts = user.counts + 1
+        user.put()    
 
         self.generate('update.html', template_values={
                                                    'name': current_user,  
                                                    'status': twitter_status,
                                                    'twitter': user.twitter,
-                                                   'url': gpowered_url,
+                                                   'url': result,
+                                                   'link': str(gpowered_url),
                                                 })
 
 def main():
