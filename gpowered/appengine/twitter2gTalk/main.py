@@ -120,28 +120,28 @@ class TweetHander(BaseRequestHandler):
         return encrypted_url
     
     def get(self):        
-        current_user = users.get_current_user()
-        
-        if not current_user:
-            self.redirect(users.create_login_url(self.request.path))
-            
-        user = Account.gql('WHERE user = :1 ', current_user).get()
-        
-        twitter_status = None        
-        twitter_status = self.getTwitterStatus(user.twitter) 
-        
-        gpowered_url = self.encryptGtalk(current_user.email(), user.gPass, twitter_status)
-        
-        result = urlfetch.fetch(re.sub("\s+", "%20", str(gpowered_url))) 
-        user.counts = user.counts + 1
-        user.put()    
+        users = Account.gql('WHERE active = :1 ', True)
+        count = 0
+        results = []
+        for user in users:
+            if user.twitter and user.user and user.gPass:
+                twitter_status = None        
+                twitter_status = self.getTwitterStatus(user.twitter) 
+                
+                email = '%s@gmail.com' % user.user
+                
+                gpowered_url = self.encryptGtalk(email, user.gPass, twitter_status)
+                
+                result = urlfetch.fetch(re.sub("\s+", "%20", str(gpowered_url)))
+                results.append(result) 
+                user.counts = user.counts + 1
+                user.put()    
+                count = count + 1
 
         self.generate('update.html', template_values={
-                                                   'name': current_user,  
-                                                   'status': twitter_status,
-                                                   'twitter': user.twitter,
-                                                   'url': result,
-                                                   'link': str(gpowered_url),
+                                                   'names': users,
+                                                   'count' : count,
+                                                   'results' : results,
                                                 })
 
 def main():
