@@ -159,7 +159,7 @@ def status_update(request, url):
     gp_privkey = makePrivKey(gp_priv)
     gae_pubkey = makePubKey(gae_pub)
     
-    gp_one = gpowered.rsa.verify(url, gae_pubkey)
+    #gp_one = gpowered.rsa.verify(url, gae_pubkey)
     enc = gpowered.rsa.decrypt(gp_one, gp_privkey) 
     
     encs = enc.split('!gpowered!')
