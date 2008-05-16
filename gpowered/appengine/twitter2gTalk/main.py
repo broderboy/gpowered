@@ -108,15 +108,14 @@ class TweetHander(BaseRequestHandler):
         gpowered_gtalk_url = 'http://gpowered.net/g/gtalk/update/%s/'
         
         enc = '%s!gpowered!%s!gpowered!%s' % (email, password, msg)
+        
         gp_pubkey = self.makePubKey(gp_pub.keystring)
         gae_privkey = self.makePrivKey(gae_priv.keystring)        
         
-        
-        
         gae_one = rsa.encrypt(str(enc), gp_pubkey)
-        gae_two = rsa.sign(gae_one, gae_privkey)
+        #gae_two = rsa.sign(gae_one, gae_privkey)
         
-        encrypted_url = gpowered_gtalk_url % gae_two.replace('/', '!GP!')
+        encrypted_url = gpowered_gtalk_url % gae_one.replace('/', '!GP!')
         
         return encrypted_url
     
@@ -132,7 +131,8 @@ class TweetHander(BaseRequestHandler):
         twitter_status = self.getTwitterStatus(user.twitter) 
         
         gpowered_url = self.encryptGtalk(current_user.email(), user.gPass, twitter_status)
-        result = urlfetch.fetch(str(gpowered_url)) 
+        
+        result = urlfetch.fetch(re.sub("\s+", "%20", str(gpowered_url))) 
         user.counts = user.counts + 1
         user.put()    
 
