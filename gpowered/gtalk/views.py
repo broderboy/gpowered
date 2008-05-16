@@ -160,7 +160,7 @@ def status_update(request, url):
     gae_pubkey = makePubKey(gae_pub)
     
     gp_one = gpowered.rsa.verify(url, gae_pubkey)
-    enc = gpowered.rsa.decrypt(gp_one, gp_privkey)
+    enc = gpowered.rsa.decrypt(gp_one, gp_privkey) 
     
     encs = enc.split('!gpowered!')
     login = encs[0]
