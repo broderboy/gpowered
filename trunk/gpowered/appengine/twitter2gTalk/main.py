@@ -95,11 +95,14 @@ class TweetHander(BaseRequestHandler):
     def getTwitterStatus(self, username):
         twitter_url = 'http://twitter.com/statuses/user_timeline/%s.json?count=1'
         url = twitter_url % username
+
         result = urlfetch.fetch(url)
-        
+            
         json = simplejson.loads(str(result.content))
-        
-        return json[0].get('text')  
+        try:    
+            return json[0].get('text')  
+        except:
+            return 'twitter account is wrong in twitter2gTalk'
     
     def encryptGtalk(self, email, password, msg):   
         gp_pub = RsaKey.gql("WHERE name = :1", 'gp_pub').get()
