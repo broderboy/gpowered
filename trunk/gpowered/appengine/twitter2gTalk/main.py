@@ -31,7 +31,12 @@ class BaseRequestHandler(webapp.RequestHandler):
 class MainHandler(BaseRequestHandler):
 
   def get(self):
-    self.generate('base.html')
+    self.generate('base.html', template_values={'urchin': True})
+
+class ListHandler(BaseRequestHandler):
+    def get(self):
+        users = Account.gql('WHERE active = :1 ', True)
+        self.generate('list.html', template_values={'users': users})
     
 class SettingsHander(BaseRequestHandler):
 
@@ -46,7 +51,8 @@ class SettingsHander(BaseRequestHandler):
             twitter = user.twitter        
         
         self.generate('settings.html', template_values={'user': current_user,
-                                                        'twitter': twitter
+                                                        'twitter': twitter,
+                                                        'urchin': True,
                                                 })
     def post(self):
         current_user = users.get_current_user()        
@@ -69,6 +75,7 @@ class SettingsHander(BaseRequestHandler):
             if not user:
                 user = Account(user=current_user, gPass=password, twitter=twitter, active=True, counts=0)
             else:
+                user.gLogin = current_user.nickname().replace(' ', '')
                 user.gPass = password
                 user.twitter = twitter
                 user.active = True
@@ -78,7 +85,8 @@ class SettingsHander(BaseRequestHandler):
             errors = None
         
         self.generate('settings.html', template_values={'user': current_user,
-                                                        'errors': errors
+                                                        'errors': errors,
+                                                        'urchin': True,
                                                 })
 class TweetHander(BaseRequestHandler):
         
@@ -123,23 +131,24 @@ class TweetHander(BaseRequestHandler):
         return encrypted_url
     
     def get(self):        
-        users = Account.gql('WHERE active = :1 ', True)
+        user = Account.gql('WHERE gLogin = :1 ', self.request.get('u')).get()
+        
         count = 0
         results = []
-        for user in users:
-            if user.twitter and user.user and user.gPass:
-                twitter_status = None        
-                twitter_status = self.getTwitterStatus(user.twitter) 
-                
-                email = '%s@gmail.com' % user.user
-                
-                gpowered_url = self.encryptGtalk(email, user.gPass, twitter_status)
-                
-                result = urlfetch.fetch(re.sub("\s+", "%20", str(gpowered_url)))
-                results.append(result) 
-                user.counts = user.counts + 1
-                user.put()    
-                count = count + 1
+        #for user in users:
+        if user.twitter and user.user and user.gPass:
+            twitter_status = None        
+            twitter_status = self.getTwitterStatus(user.twitter) 
+            
+            email = '%s@gmail.com' % user.user
+            
+            gpowered_url = self.encryptGtalk(email, user.gPass, twitter_status)
+            
+            result = urlfetch.fetch(re.sub("\s+", "%20", str(gpowered_url)))
+            results.append(result) 
+            user.counts = user.counts + 1
+            user.put()    
+            count = count + 1
 
         self.generate('update.html', template_values={
                                                    'names': users,
@@ -152,6 +161,7 @@ def main():
                                        ('/settings/', SettingsHander),
                                        ('/save/', SettingsHander),
                                        ('/update/', TweetHander),
+                                       ('/list/', ListHandler),
                                        ],
                                        debug=True)
   wsgiref.handlers.CGIHandler().run(application)
