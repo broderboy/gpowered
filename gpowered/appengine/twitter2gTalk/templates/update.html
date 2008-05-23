@@ -1,8 +1,1 @@
-{% extends "base.html" %}
-{% block title %}Update{% endblock %}
-{% block content %}
-{{ count }}<br>
-{% for result in results %}
-{{ result.status_code }} {{ result.content }}<br>
-{% endfor %}
-{% endblock %}
+{% for result in results %}{{ result.status_code }} {{ result.content }}{% endfor %}
