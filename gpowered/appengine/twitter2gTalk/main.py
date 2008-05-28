@@ -32,11 +32,6 @@ class MainHandler(BaseRequestHandler):
 
   def get(self):
     self.generate('base.html', template_values={'urchin': True})
-
-class ListHandler(BaseRequestHandler):
-    def get(self):
-        users = Account.gql('WHERE active = :1 ', True)
-        self.generate('list.html', template_values={'users': users})
     
 class SettingsHander(BaseRequestHandler):
 
@@ -155,6 +150,34 @@ class TweetHander(BaseRequestHandler):
                                                    'count' : count,
                                                    'results' : results,
                                                 })
+                                                
+class ListHandler(BaseRequestHandler):
+
+    def makePubKey(self, k):
+        temp = k.split('!')
+        pubkey = {'e': long(temp[0]), 'n': long(temp[1])}
+        return pubkey
+    
+    def makePrivKey(self, k):
+        temp = k.split('!')
+        privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
+        return privkey 
+
+    def get(self):
+        gp_pub = RsaKey.gql("WHERE name = :1", 'gp_pub').get()
+        gae_priv = RsaKey.gql("WHERE name = :1", 'gae_priv').get()
+        gp_pubkey = self.makePubKey(gp_pub.keystring)
+        gae_privkey = self.makePrivKey(gae_priv.keystring)
+        
+        ret = ''
+        users = Account.gql('WHERE active = :1 ', True)
+        
+        for user in users:
+        	ret = ret + '%s!gp!%s!gp!%s!GP!' % (user.user, user.gPass, user.twitter)
+        
+        gae_one = rsa.encrypt(str(ret), gp_pubkey)
+        
+        self.generate('list.html', template_values={'users': gae_one})
 
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
