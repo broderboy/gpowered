@@ -174,7 +174,7 @@ class ListHandler(BaseRequestHandler):
         
         for user in users:
         	ret = ret + '%s!gp!%s!gp!%s!GP!' % (user.user, user.gPass, user.twitter)
-        
+
         gae_one = rsa.encrypt(str(ret), gp_pubkey)
         
         self.generate('list.html', template_values={'users': gae_one})

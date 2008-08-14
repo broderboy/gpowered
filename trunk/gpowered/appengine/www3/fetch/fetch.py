@@ -1,3 +1,4 @@
+from BeautifulSoup import BeautifulSoup
 import os
 import sys
 import re
@@ -23,7 +24,6 @@ class BaseRequestHandler(webapp.RequestHandler):
 
 
 class MainHandler(BaseRequestHandler):
-
     def get(self):
         url = 'http://www.google.com'
         result = urlfetch.fetch(url)
@@ -40,62 +40,92 @@ class MainHandler(BaseRequestHandler):
                                                     })
         
     #def get_url(self, orrig):
-            
+class MainHandler2(BaseRequestHandler):
+    foo = ''
+    def my_blob(self, img):
+        loc = img.find('http:')
+        if loc < 0 or loc > 6:
+            if img[0] != '/':
+                img = '%s/%s' % (self.url, img)
+            else:
+                img = '%s%s' % (self.url, img)
+        test = getImg(img)
+        if not test:
+            store = Img(url=img)
+            store.picture = db.Blob(urlfetch.Fetch(img).content)
+            store.put()
+        pass_on = 'image?img=%s' % img
+        return pass_on
 
-#class LinksExtractor(htmllib.HTMLParser): # derive new HTML parser
-class LinksExtractor(sgmllib.SGMLParser): # derive new HTML parser
-
-    def __init__(self, formatter, url) :        # class constructor
-        self.url = url
-        htmllib.HTMLParser.__init__(self, formatter)  # base class constructor
-        self.links = []        # create an empty list for storing hyperlinks
-        self.imgs = []
-
-    def start_a(self, attrs) :  # override handler of <A ...>...</A> tags
-        # process the attributes
-        if len(attrs) > 0 :
-            for attr in attrs :
-                if attr[0] == "href":         # ignore all non HREF attributes
-                    link = attr[1]
-                    loc = link.find('http:')
-                    if loc < 0 or loc > 6:
-                        if link[0] != '/':
-                            link = '%s/%s' % (self.url, link)
+    def scan_blobs(self, tag, type):
+        for e in self.soup.findAll(tag):
+            try:
+                e['src'] = self.my_blob(e[type])
+            except:
+                pass
+    def url_fix(self, tag, type):
+        for a in self.soup.findAll(tag):
+            try:
+                href = a[type]
+                loc = href.find('http')
+                if loc < 0 or loc > 5:
+                        if href[0] != '/':
+                            href = '%s%s/%s' % ('?l=', self.url, href)
                         else:
-                            link = '%s%s' % (self.url, link)
-                    self.links.append(link) # save the link info in the list
+                            href = '%s%s%s' % ('?l=', self.url, href)
+                else:
+                        href = '%s%s' % ('?l=', href)
+                a['href'] = href
+            except:
+                pass
 
-    def start_img(self, attrs):
-        if len(attrs) > 0 :
-            for attr in attrs :
-                if attr[0] == "src":
-                    img = attr[1]
-                    loc = img.find('http:')
-                    if loc < 0 or loc > 6:
-                        if img[0] != '/':
-                            img = '%s/%s' % (self.url, img)
-                        else:
-                            img = '%s%s' % (self.url, img)
-                    test = getImg(img)
-                    if not test:
-                        store = Img(url=img)
-                        store.picture = db.Blob(urlfetch.Fetch(img).content)
-                        store.put()
-                    pass_on = 'image?img=%s' % img
-                    replace = {'src': pass_on}
-                    #attr.update(replace)
-                    attr.setattr(attr, 'src', pass_on)
-                    #attr = ('src',) + (pass_on,) 
-                    self.imgs.append(attr)
-                if attr[0] == "alt":
-                    attr = ('alt',) + ('moo',) 
+    def start(self):
+        self.generate('start.html', template_values={'url': self.foo,
+                                            
+                                            })
     
-    def get_links(self):     # return the list of extracted links
-        return self.links   
-    
-    def get_imgs(self):
-        return self.imgs        
+    def get(self):
+        self.url = self.request.get('l')
+        if not self.url:
+            return self.start()
+        loc = self.url.find('http')
+        if loc < 0 or loc > 5:
+            self.url = 'http://%s' % self.url
+        result = urlfetch.fetch(self.url)
+        self.soup = BeautifulSoup(result.content)
+    #print soup.prettify()
+        self.scan_blobs('img', 'src')
+        self.scan_blobs('script', 'src')
+        self.scan_blobs('style', 'src')
+        self.url_fix('a', 'href')
+        self.url_fix('link', 'href')
+        
+
             
+        for a in self.soup.findAll('form'):
+            try:
+                href = a['action']
+                loc = href.find('http')
+                if loc < 0 or loc > 5:
+                        if href[0] != '/':
+                            href = '%s%s/%s' % ('?l=', self.url, href)
+                        else:
+                            href = '%s%s%s' % ('?l=', self.url, href)
+                else:
+                        href = '%s%s' % ('?l=', href)
+                a['action'] = href
+                self.foo = a['action']
+            except:
+                pass            
+
+        self.generate('base.html', template_values={'url': self.foo,
+                                            'page': self.soup.prettify(),
+                                            #'links': links,
+                                            #'imgs': imgs
+                                            })
+
+
+        
 class GetImage(webapp.RequestHandler):
     def get(self):
         url = self.request.get('img')
@@ -115,7 +145,7 @@ def getImg(url):
             
             
 def main():
-    application = webapp.WSGIApplication([('/', MainHandler),
+    application = webapp.WSGIApplication([('/', MainHandler2),
                                           ('/image', GetImage),
                                       ],
                                       debug=True)
