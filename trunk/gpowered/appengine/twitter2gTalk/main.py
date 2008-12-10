@@ -42,12 +42,13 @@ class SettingsHander(BaseRequestHandler):
         twitter = None
         user = Account.gql('WHERE user = :1', current_user).get()
         
-        if user:
-            twitter = user.twitter        
+        twitter = user.twitter      
+        active = user.active  
         
         self.generate('settings.html', template_values={'user': current_user,
                                                         'twitter': twitter,
                                                         'urchin': True,
+                                                        'active': active,
                                                 })
     def post(self):
         current_user = users.get_current_user()        
@@ -73,7 +74,10 @@ class SettingsHander(BaseRequestHandler):
                 user.gLogin = current_user.nickname().replace(' ', '')
                 user.gPass = password
                 user.twitter = twitter
-                user.active = True
+                if active == 'yes':
+                    user.active = True
+                else:
+                    user.active = False
                 
             
             user.put()
@@ -82,6 +86,8 @@ class SettingsHander(BaseRequestHandler):
         self.generate('settings.html', template_values={'user': current_user,
                                                         'errors': errors,
                                                         'urchin': True,
+                                                        'twitter': user.twitter,
+                                                        'active': user.active,
                                                 })
 class TweetHander(BaseRequestHandler):
         
