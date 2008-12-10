@@ -41,14 +41,20 @@ class MainHandler(BaseRequestHandler):
         
     #def get_url(self, orrig):
 class MainHandler2(BaseRequestHandler):
-    foo = ''
+    url = None
+    foo = None
     def my_blob(self, img):
         loc = img.find('http:')
         if loc < 0 or loc > 6:
             if img[0] != '/':
-                img = '%s/%s' % (self.url, img)
+                img = '%s/1%s' % (self.url, img)
             else:
-                img = '%s%s' % (self.url, img)
+                #img = '%s%s' % (self.url, img)
+                loc2 = img.find('//')
+                if loc2 < 0:
+                    img = '%s%s' % (self.url, img)
+                else:
+                    img = 'http://google.com/%s/%s' % (self.url.split('//')[1].split('/'), img)
         test = getImg(img)
         if not test:
             store = Img(url=img)
@@ -83,8 +89,12 @@ class MainHandler2(BaseRequestHandler):
         self.generate('start.html', template_values={'url': self.foo,
                                             
                                             })
+    def post(self):
+        self.url = self.request.get('l')
+        return self.get()
     
     def get(self):
+        #if not self.url:
         self.url = self.request.get('l')
         if not self.url:
             return self.start()
@@ -100,7 +110,7 @@ class MainHandler2(BaseRequestHandler):
         self.url_fix('a', 'href')
         self.url_fix('link', 'href')
         
-
+    
             
         for a in self.soup.findAll('form'):
             try:
@@ -118,7 +128,7 @@ class MainHandler2(BaseRequestHandler):
             except:
                 pass            
 
-        self.generate('base.html', template_values={'url': self.foo,
+        self.generate('base.html', template_values={'url': self.url,
                                             'page': self.soup.prettify(),
                                             #'links': links,
                                             #'imgs': imgs
