@@ -1,4 +1,4 @@
-from django2.service.models import *
+from service.models import *
 from django.contrib import admin
 
 admin.site.register(Service)
