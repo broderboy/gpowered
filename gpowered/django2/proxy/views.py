@@ -4,8 +4,8 @@ import datetime
 import sys, xmpp, os, urllib2, time, simplejson
 from time import gmtime, strftime
 
-from django2.service.models import *
-from django2.rsa.models import *
+from service.models import *
+from rsa.models import *
 
 class Twitter2gChat:
     
