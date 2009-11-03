@@ -18,7 +18,7 @@ from cPickle import dumps, loads
 import base64
 import zlib
 
-RANDOM_DEV="/dev/urandom"
+RANDOM_DEV="."
 has_broken_randint = False
 
 try:
