@@ -176,17 +176,11 @@ class Twitter2gChat:
         gae_pubkey = self.makePubKey(gae_pub)
 
         gtalk_service = Service.objects.get(name='google')
-        #f = urllib2.urlopen('http://twitter2gtalk.appspot.com/list/')
-        #result = f.read()
-        print "KEY %s" % gp_privkey
-        print "SLUG %s" % slug
+
         enc = crypt.decrypt(slug, gp_privkey)
+
         decrypted = enc.split('!gp!')
-        #print enc
-        #users = enc.split('!GP!')
-        #users.pop()
-        #for user in users:
-        
+
         gLogin = decrypted[0]
         gPass = decrypted[1]
         twit = decrypted[2]
@@ -195,39 +189,26 @@ class Twitter2gChat:
         self.updated = None
         self.catches = 0
 
-        print 'gLogin: %s' % gLogin
-        
-            #try:
-            #twitter_account =  user.extaccount_set.get(service=self.twitter_service)
-            #google_account =  user.extaccount_set.get(service=gtalk_service)
-
         self.twitter_status = self.getTwitterStatus(twit)
         try:
             print self.twitter_status
         except:
             pass
-        #return
+
         if self.twitter_status != '' and '@' not in self.twitter_status:
-        #if self.twitter_status != '':
+
             self.updateGtalkStatus(gLogin, gPass)
         else:
             self.updated = True             
-                
-            #except:
-            #    pass
+
         while not self.updated:
             print self.updated
             time.sleep(2)
 
-#t = Twitter2gChat()
-#t.loop()
 
 def start(request, slug):
     now = datetime.datetime.now()
     html = "<html><body>It is now %s.</body></html>" % now
-    #print slug2
-    #encrypted=slug
-    #decrypted = encrypted.split('!gp!')
     
     t = Twitter2gChat()
     t.loop(slug)

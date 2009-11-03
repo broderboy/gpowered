@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^xmppproxy/(?P<slug>[-\w]+)/$', start),
+    (r'^xmppproxy/(?P<slug>.*)', start),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
