@@ -69,7 +69,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "C:/Python25/Lib/site-packages/django/contrib/admin/templates"
+    "C:/Python25/Lib/site-packages/django/contrib/admin/templates",
+    "/home/gpowered/lib/python2.5/django/contrib/admin/templates",
 )
 
 INSTALLED_APPS = (
