@@ -1,4 +1,4 @@
-from django2.rsa.models import RsaKey
-from django.contrib import admin
+from rsa.models import RsaKey
+from contrib import admin
 
 admin.site.register(RsaKey)
