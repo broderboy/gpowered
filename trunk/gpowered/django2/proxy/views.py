@@ -6,6 +6,7 @@ from time import gmtime, strftime
 
 from service.models import *
 from rsa.models import *
+import crypt
 
 class Twitter2gChat:
     
@@ -164,24 +165,32 @@ class Twitter2gChat:
 
     def makePrivKey(self, k):
         temp = k.split('!')
+        print "k %s" % k
         privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
         return privkey    
 
-    def loop(self, gLogin, gPass, twit):
-        gae_pub = RsaKey.objects.filter(name="gae_pub")[0].key
-        gp_priv = RsaKey.objects.filter(name="gp_priv")[0].key
+    def loop(self, slug):
+        gae_pub = RsaKey.objects.get(name="gae_pub").key
+        gp_priv = RsaKey.objects.get(name="gp_priv").key
         gp_privkey = self.makePrivKey(gp_priv)
         gae_pubkey = self.makePubKey(gae_pub)
 
         gtalk_service = Service.objects.get(name='google')
-        
         #f = urllib2.urlopen('http://twitter2gtalk.appspot.com/list/')
         #result = f.read()
-        #enc = gpowered.rsa.decrypt(result, gp_privkey)
+        print "KEY %s" % gp_privkey
+        print "SLUG %s" % slug
+        enc = crypt.decrypt(slug, gp_privkey)
+        decrypted = enc.split('!gp!')
         #print enc
         #users = enc.split('!GP!')
         #users.pop()
         #for user in users:
+        
+        gLogin = decrypted[0]
+        gPass = decrypted[1]
+        twit = decrypted[2]
+        
         self.twitter_status = ''
         self.updated = None
         self.catches = 0
@@ -216,10 +225,10 @@ class Twitter2gChat:
 def start(request, slug):
     now = datetime.datetime.now()
     html = "<html><body>It is now %s.</body></html>" % now
-    
-    encrypted=slug
-    decrypted = encrypted.split('!gp!')
+    #print slug2
+    #encrypted=slug
+    #decrypted = encrypted.split('!gp!')
     
     t = Twitter2gChat()
-    t.loop(decrypted[0], decrypted[1], decrypted[2])
+    t.loop(slug)
     return HttpResponse(html)
