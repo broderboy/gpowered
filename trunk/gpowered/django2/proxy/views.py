@@ -213,10 +213,11 @@ class Twitter2gChat:
 #t = Twitter2gChat()
 #t.loop()
 
-def start(request, encrypted):
+def start(request, slug):
     now = datetime.datetime.now()
     html = "<html><body>It is now %s.</body></html>" % now
     
+    encrypted=slug
     decrypted = encrypted.split('!gp!')
     
     t = Twitter2gChat()

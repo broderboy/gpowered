@@ -1,12 +1,12 @@
 from django.conf.urls.defaults import *
-from django2.proxy.views import start
+from proxy.views import start
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^xmppproxy/(?P<slug>[-\w]+)/$/$', start),
+    (r'^xmppproxy/(?P<slug>[-\w]+)/$', start),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
