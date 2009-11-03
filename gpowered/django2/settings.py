@@ -78,7 +78,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'django2.rsa',
-    'django2.proxy',
-    'django2.service'
+    'rsa',
+    'proxy',
+    'service'
 )
