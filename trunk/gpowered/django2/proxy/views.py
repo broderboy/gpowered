@@ -86,20 +86,20 @@ class Twitter2gChat:
                 self.logger.error( 'status is already tweet')
                 #sys.exit(0)
                 self.updated = True
+            else:    
+                curr_status.setData(self.twitter_status)
+    
+                #set response
+                iq_node.setType('set')
                 
-            curr_status.setData(self.twitter_status)
-
-            #set response
-            iq_node.setType('set')
-            
-            self.logger.error( 'sending')
-            try:
-                self.logger.error( iq_node)
-            except:
-                pass
-            self.updated = True
-            conn.send(iq_node)
-            self.logger.error( 'end of iqHandler\n\n')
+                self.logger.error( 'sending')
+                try:
+                    self.logger.error( iq_node)
+                except:
+                    pass
+                self.updated = True
+                conn.send(iq_node)
+                self.logger.error( 'end of iqHandler\n\n')
 
     #start talking to the server and update status
     def updateGtalkStatus(self, google_username, google_pass):
