@@ -178,7 +178,7 @@ class Twitter2gChat:
         gtalk_service = Service.objects.get(name='google')
 
         enc = crypt.decrypt(slug, gp_privkey)
-
+        print "DECR %s" % enc
         decrypted = enc.split('!gp!')
 
         gLogin = decrypted[0]
@@ -209,7 +209,7 @@ class Twitter2gChat:
 def start(request, slug):
     now = datetime.datetime.now()
     html = "<html><body>It is now %s.</body></html>" % now
-    
+    slug = slug.replace('!gp!', '\n')
     t = Twitter2gChat()
     t.loop(slug)
     return HttpResponse(html)
