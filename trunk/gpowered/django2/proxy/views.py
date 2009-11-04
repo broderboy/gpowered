@@ -30,7 +30,7 @@ class Twitter2gChat:
     
     #keep listening for responses
     def StepOn(self,conn):
-        print 'StepOn'
+        self.logger.error('StepOn')
         if self.updated:
             return 0
         try:
@@ -41,13 +41,13 @@ class Twitter2gChat:
 
     #handle responses
     def iqHandler(self, conn,iq_node):
-        print 'in iqHandler'
-        print strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
+        self.logger.error('in iqHandler')
+        #self.logger.error(strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime()))
         self.catches = self.catches + 1
         
         #we have looped enough, die
         if self.catches == 4:
-            print 'i think we did it'
+            self.logger.error('i think we did it')
             #sys.exit(0)
             self.updated = True
             return
@@ -55,7 +55,7 @@ class Twitter2gChat:
         #print response, don't need to send anything back    
         if self.updated == True:
             try:
-                print iq_node
+                self.logger.error(iq_node)
             except:
                 pass
         
@@ -76,14 +76,14 @@ class Twitter2gChat:
 
             try:
                 curr_status = node.getChildren()[0]
-                print curr_status
+                self.logger.error( curr_status)
             except IndexError:
                 curr_status = node
                 curr_status.setData('twitter2gTalk will not work with protected tweets')
             
             #no need to update
             if curr_status.getData() == self.twitter_status:
-                print 'status is already tweet'
+                self.logger.error( 'status is already tweet')
                 #sys.exit(0)
                 self.updated = True
                 
@@ -92,30 +92,30 @@ class Twitter2gChat:
             #set response
             iq_node.setType('set')
             
-            print 'sending'
+            self.logger.error( 'sending')
             try:
-                print iq_node
+                self.logger.error( iq_node)
             except:
                 pass
             self.updated = True
             conn.send(iq_node)
-            print 'end of iqHandler\n\n'
+            self.logger.error( 'end of iqHandler\n\n')
 
     #start talking to the server and update status
     def updateGtalkStatus(self, google_username, google_pass):
         if '@' not in google_username:
             google_username = '%s@gmail.com' % google_username
-        print google_username
+        self.logger.error( google_username)
         #connect
         jid=xmpp.protocol.JID(google_username)
         cl=xmpp.Client(jid.getDomain(),debug=[])
         if not cl.connect(('talk.google.com',5222)):
-            print 'Can not connect to server.'
+            self.logger.error( 'Can not connect to server.')
             #sys.exit(1)
             self.updated = True
             return
         if not cl.auth(jid.getNode(),google_pass):
-            print 'Can not auth with server %s ' % google_username
+            self.logger.error( 'Can not auth with server %s ' % google_username)
             self.updated = True
             return 
             
@@ -129,7 +129,7 @@ class Twitter2gChat:
         node.setAttr('xmlns', 'google:shared-status')
 
         iq.addChild(node=node) 
-        print iq
+        self.logger.error( iq)
 
         #register with server and send subscribe to status updates
         cl.RegisterHandler('iq',self.iqHandler)
@@ -142,7 +142,7 @@ class Twitter2gChat:
     def getTwitterStatus(self, username):
         twitter_url = 'http://twitter.com/statuses/user_timeline/%s.json?count=1'
         url = twitter_url % username
-        print url
+        self.logger.error( url)
         try:
             f = urllib2.urlopen(url)
             result = f.read()
@@ -151,13 +151,13 @@ class Twitter2gChat:
     
             return json[0].get('text')
         except urllib2.HTTPError:
-            print 'urllib2.HTTPError'
+            self.logger.error( 'urllib2.HTTPError')
             return ''
         except IndexError:
-            print 'IndexError'
+            self.logger.error( 'IndexError')
             return ''
         except ValueError:
-            print 'no account'
+            self.logger.error( 'no account')
             return ''
 
     def makePubKey(self, k):
@@ -167,7 +167,7 @@ class Twitter2gChat:
 
     def makePrivKey(self, k):
         temp = k.split('!')
-        print "k %s" % k
+#        print "k %s" % k
         privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
         return privkey    
     
@@ -191,14 +191,14 @@ class Twitter2gChat:
         gtalk_service = Service.objects.get(name='google')
 
         enc = crypt.decrypt(slug, gp_privkey)
-        print "DECR %s" % enc
+        #print "DECR %s" % enc
         decrypted = enc.split('!gp!')
 
         gLogin = decrypted[0]
         gPass = decrypted[1]
         twit = decrypted[2]
         
-        self.logger = self.getlogger("%s_%s" (gLogin, twit))
+        self.logger = self.getlogger("%s_%s.txt" % (gLogin, twit))
         self.logger.error("HIIIiiii %s" % gLogin)
         
         self.twitter_status = ''
@@ -207,7 +207,7 @@ class Twitter2gChat:
 
         self.twitter_status = self.getTwitterStatus(twit)
         try:
-            print self.twitter_status
+            self.logger.error( self.twitter_status)
         except:
             pass
 
@@ -218,7 +218,7 @@ class Twitter2gChat:
             self.updated = True             
 
         while not self.updated:
-            print self.updated
+            self.logger.error( self.updated)
             time.sleep(2)
 
 
