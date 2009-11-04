@@ -50,7 +50,8 @@ class Twitter2gChat:
             self.logger.error('i think we did it')
             #sys.exit(0)
             self.updated = True
-            return
+            #return
+            return HttpResponse("")
         
         #print response, don't need to send anything back    
         if self.updated == True:
@@ -84,8 +85,10 @@ class Twitter2gChat:
             #no need to update
             if curr_status.getData() == self.twitter_status:
                 self.logger.error( 'status is already tweet')
-                sys.exit(0)
+                #sys.exit(0)
                 self.updated = True
+                return
+                return HttpResponse("")
             else:    
                 curr_status.setData(self.twitter_status)
     
@@ -113,7 +116,8 @@ class Twitter2gChat:
             self.logger.error( 'Can not connect to server.')
             #sys.exit(1)
             self.updated = True
-            return
+            #return
+            return HttpResponse("")
         if not cl.auth(jid.getNode(),google_pass):
             self.logger.error( 'Can not auth with server %s ' % google_username)
             self.updated = True
