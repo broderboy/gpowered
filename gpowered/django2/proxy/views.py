@@ -51,7 +51,7 @@ class Twitter2gChat:
             #sys.exit(0)
             self.updated = True
             #return
-            return HttpResponse("")
+            sys.exit(0)
         
         #print response, don't need to send anything back    
         if self.updated == True:
@@ -88,7 +88,7 @@ class Twitter2gChat:
                 #sys.exit(0)
                 self.updated = True
                 return
-                return HttpResponse("")
+                sys.exit(0)
             else:    
                 curr_status.setData(self.twitter_status)
     
@@ -117,7 +117,7 @@ class Twitter2gChat:
             #sys.exit(1)
             self.updated = True
             #return
-            return HttpResponse("")
+            sys.exit(0)
         if not cl.auth(jid.getNode(),google_pass):
             self.logger.error( 'Can not auth with server %s ' % google_username)
             self.updated = True
