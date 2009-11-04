@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 import datetime
+import logging
+
 
 import sys, xmpp, os, urllib2, time, simplejson
 from time import gmtime, strftime
@@ -168,6 +170,17 @@ class Twitter2gChat:
         print "k %s" % k
         privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
         return privkey    
+    
+    def getlogger(self):
+        logger = logging.getLogger()
+        hdlr = logging.FileHandler('TIMLOG.txt')
+        formatter = logging.Formatter('[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S') 
+        
+        hdlr.setFormatter(formatter)
+        logger.addHandler(hdlr)
+        logger.setLevel(logging.NOTSET)
+    
+        return logger
 
     def loop(self, slug):
         gae_pub = RsaKey.objects.get(name="gae_pub").key
@@ -184,6 +197,9 @@ class Twitter2gChat:
         gLogin = decrypted[0]
         gPass = decrypted[1]
         twit = decrypted[2]
+        
+        self.logger = self.getlogger()
+        self.logger.debug("HIIIiiii %s" % gLogin)
         
         self.twitter_status = ''
         self.updated = None
