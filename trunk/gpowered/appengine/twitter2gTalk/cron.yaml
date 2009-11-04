@@ -1,0 +1,4 @@
+cron:
+- description: load the task queue
+  url: /taskloader/
+  schedule: every 1 minutes

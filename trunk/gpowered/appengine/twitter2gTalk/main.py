@@ -1,5 +1,6 @@
+import urllib
 import os, sys, re
-
+import logging
 import wsgiref.handlers
 from models import Account, RsaKey
 
@@ -7,8 +8,11 @@ from google.appengine.ext import webapp
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
 from google.appengine.api import urlfetch
+from google.appengine.api.labs import taskqueue
 import simplejson
 import rsa
+import datetime
+import urllib2
 
 _DEBUG = True
 
@@ -39,11 +43,17 @@ class SettingsHander(BaseRequestHandler):
         current_user = users.get_current_user()        
         if not current_user:
             self.redirect(users.create_login_url(self.request.path))
-        twitter = None
-        user = Account.gql('WHERE user = :1', current_user).get()
+        user = Account.gql('WHERE user = :1', users.get_current_user()).get()
         
-        twitter = user.twitter      
-        active = user.active  
+        try:
+            twitter = user.twitter
+        except:
+            twitter = None
+            
+        try:      
+            active = user.active
+        except:
+            active = None  
         
         self.generate('settings.html', template_values={'user': current_user,
                                                         'twitter': twitter,
@@ -58,7 +68,7 @@ class SettingsHander(BaseRequestHandler):
         password = self.request.get('password')
         twitter = self.request.get('twitter')
         active = self.request.get('active')
-        
+        #logging.info("!!!!!!! %s" % active)
         errors = []
         
         if not password:
@@ -74,10 +84,11 @@ class SettingsHander(BaseRequestHandler):
                 user.gLogin = current_user.nickname().replace(' ', '')
                 user.gPass = password
                 user.twitter = twitter
-                if active == 'yes':
-                    user.active = True
-                else:
-                    user.active = False
+                
+            if active == 'yes':
+                user.active = True
+            else:
+                user.active = False
                 
             
             user.put()
@@ -184,13 +195,88 @@ class ListHandler(BaseRequestHandler):
         gae_one = rsa.encrypt(str(ret), gp_pubkey)
         
         self.generate('list.html', template_values={'users': gae_one})
+        
+class Prime(BaseRequestHandler):
+    def get(self):
+        k = RsaKey(name='fpp',keystring='sdasds')
+        k.put()
+        #self.redirect('/')
 
+class Prime(BaseRequestHandler):
+    def get(self):
+        a = Account(user=users.get_current_user(), gPass='fpp', twitter='asdsad',active=True, counts=0)
+        a.save()
+
+        return None
+            
+class CronHandler(BaseRequestHandler):
+    def get(self):
+        return None
+    
+class TaskLoader(BaseRequestHandler):
+    def makePubKey(self, k):
+        temp = k.split('!')
+        pubkey = {'e': long(temp[0]), 'n': long(temp[1])}
+        return pubkey
+    
+    def makePrivKey(self, k):
+        temp = k.split('!')
+        privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
+        return privkey 
+    def get(self):
+        logging.info("Starting to load tasks %s" % datetime.datetime.now())
+        ret = ''
+        gp_pub = RsaKey.gql("WHERE name = :1", 'gp_pub').get()
+        gae_priv = RsaKey.gql("WHERE name = :1", 'gae_priv').get()
+        gp_pubkey = self.makePubKey(gp_pub.keystring)
+        gae_privkey = self.makePrivKey(gae_priv.keystring)
+        
+        
+        users = Account.gql('WHERE active = :1 ', True)
+        
+        count = 0
+        for user in users:
+            #logging.info(user.user)
+            ret = ret + '%s!gp!%s!gp!%s' % (user.user, user.gPass, user.twitter)
+            gae_one = rsa.encrypt(str(ret), gp_pubkey)
+            send_key = gae_one.replace('\n', '!gp!')
+            taskqueue.add(url='/worker/', params={'key': send_key})
+            #logging.error("KEY !%s!" % gae_one.replace('\n', '!gp!'))
+            #logging.error("KEY !%d!" % gae_one.find('\n'))
+            logging.debug("USER: %s TWITTER: %s KEY: %s" % (user.user, user.twitter, send_key))
+            count += 1
+        
+        logging.info("Ended load tasks (%d users) %s" % (count, datetime.datetime.now()))
+            
+        
+class TaskWorker(BaseRequestHandler):
+    def post(self):
+        key = self.request.get('key')
+        #logging.error("WORKINGGGGGGG WITH !%s!" % key)
+        #u = "http://django.gpowered.net/xmppproxy/eJwlzbkRwzAQQ9FclTjyAIs9e2ATzhW4/8gUnb4B5r/uL66lNiC9ukrd6/osgbIaEhzYkSnB0hjdesBGLu8KuuSPELERVeXBOlJ7Dm9p9H/tQqgzN84pZcCYGgrihvcPO6Mfww=="
+        t = ''.join(["http://django.gpowered.net/xmppproxy/", key])
+        #logging.error("URL !%s!" % u)
+        logging.info("URL !%s!" % t)
+        result = urlfetch.fetch(t, 
+                                None, 
+                                urlfetch.GET, 
+                                {'Cache-Control':'no-cache,max-age=0', 'Pragma':'no-cache'})
+        #result=urllib2.urlopen(u)
+
+        #logging.error( result.headers)
+        #logging.error( result.content)
+        #logging.error( "!")
+    
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
                                        ('/settings/', SettingsHander),
                                        ('/save/', SettingsHander),
                                        ('/update/', TweetHander),
                                        ('/list/', ListHandler),
+                                       ('/cron/', CronHandler),
+                                       ('/taskloader/', TaskLoader),
+                                       ('/worker/', TaskWorker),
+                                       #('/prime/', Prime),  
                                        ],
                                        debug=True)
   wsgiref.handlers.CGIHandler().run(application)
