@@ -171,9 +171,9 @@ class Twitter2gChat:
         privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
         return privkey    
     
-    def getlogger(self):
+    def getlogger(self, username):
         logger = logging.getLogger()
-        hdlr = logging.FileHandler('/home/gpowered/logs/user/TIMLOG.txt')
+        hdlr = logging.FileHandler("/home/gpowered/logs/user/%s" % username)
         formatter = logging.Formatter('[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S') 
         
         hdlr.setFormatter(formatter)
@@ -198,9 +198,8 @@ class Twitter2gChat:
         gPass = decrypted[1]
         twit = decrypted[2]
         
-        self.logger = self.getlogger()
+        self.logger = self.getlogger("%s_%s" (gLogin, twit))
         self.logger.error("HIIIiiii %s" % gLogin)
-        print "HIIIiiii %s" % gLogin
         
         self.twitter_status = ''
         self.updated = None
