@@ -439,6 +439,22 @@ def verify(cypher, key):
 
     return gluechops(cypher, key['e'], key['n'], encrypt_int)
 
+def makePubKey(k):
+    temp = k.split('!')
+    pubkey = {'e': long(temp[0]), 'n': long(temp[1])}
+    return pubkey
+
+def makePrivKey(k):
+    temp = k.split('!')
+    privkey = {'d': long(temp[0]), 'p': long(temp[1]), 'q': long(temp[2])}        
+    return privkey 
+
+def test():
+    orrig = "hello there"
+    opub, opriv = gen_pubpriv_keys(28)
+    print opub
+    print opriv
+
 # Do doctest if we're not imported
 if __name__ == "__main__":
     import doctest
