@@ -177,7 +177,7 @@ class Twitter2gChat:
     
     def getlogger(self, username):
         logger = logging.getLogger()
-        hdlr = logging.FileHandler("/home/gpowered/logs/user/%s" % username)
+        hdlr = logging.FileHandler("/home/gpowered/logs/user/twitter2gtalk/%s" % username)
         formatter = logging.Formatter('[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S') 
         
         hdlr.setFormatter(formatter)
