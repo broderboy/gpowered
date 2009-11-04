@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 import datetime
-#import logging
+import logging
 
 
 import sys, xmpp, os, urllib2, time, simplejson
@@ -198,8 +198,9 @@ class Twitter2gChat:
         gPass = decrypted[1]
         twit = decrypted[2]
         
-        #self.logger = self.getlogger()
-        #self.logger.debug("HIIIiiii %s" % gLogin)
+        self.logger = self.getlogger()
+        self.logger.error("HIIIiiii %s" % gLogin)
+        print "HIIIiiii %s" % gLogin
         
         self.twitter_status = ''
         self.updated = None
