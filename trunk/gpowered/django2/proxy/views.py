@@ -176,7 +176,7 @@ class Twitter2gChat:
         return privkey    
     
     def getlogger(self, username):
-        logger = logging.getLogger()
+        logger = logging.getLogger("%s" % username)
         hdlr = logging.FileHandler("/home/gpowered/logs/user/twitter2gtalk/%s" % username)
         formatter = logging.Formatter('[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S') 
         
