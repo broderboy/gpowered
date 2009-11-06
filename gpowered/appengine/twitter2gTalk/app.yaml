@@ -1,5 +1,5 @@
-application: gpoweredstage 
-version: 2
+application: twitter2gtalk 
+version: 3
 runtime: python
 api_version: 1
 

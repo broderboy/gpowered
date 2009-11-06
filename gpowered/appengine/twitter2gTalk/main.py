@@ -90,15 +90,16 @@ class SettingsHander(BaseRequestHandler):
             else:
                 user.active = False
                 
-            
+            twitter=user.twitter
+            active = user.active
             user.put()
             errors = None
         
         self.generate('settings.html', template_values={'user': current_user,
                                                         'errors': errors,
                                                         'urchin': True,
-                                                        'twitter': user.twitter,
-                                                        'active': user.active,
+                                                        'twitter': twitter,
+                                                        'active': active,
                                                 })
 class TweetHander(BaseRequestHandler):
         
@@ -232,13 +233,14 @@ class TaskLoader(BaseRequestHandler):
         gae_privkey = self.makePrivKey(gae_priv.keystring)
         
         
-        users = Account.gql('WHERE active = :1 ', True)
+        users = Account.gql('WHERE active = :1', True)
         
         count = 0
         for user in users:
             #logging.info(user.user)
-            ret = ret + '%s!gp!%s!gp!%s' % (user.user, user.gPass, user.twitter)
+            ret = '%s!gp!%s!gp!%s' % (user.user, user.gPass, user.twitter)
             gae_one = rsa.encrypt(str(ret), gp_pubkey)
+            #logging.debug("WTF %s" % ret)
             send_key = gae_one.replace('\n', '!gp!')
             taskqueue.add(url='/worker/', params={'key': send_key})
             #logging.error("KEY !%s!" % gae_one.replace('\n', '!gp!'))
