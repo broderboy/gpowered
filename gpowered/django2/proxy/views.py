@@ -85,7 +85,7 @@ class Twitter2gChat:
             #no need to update
             if curr_status.getData() == self.twitter_status:
                 self.logger.error( 'status is already tweet')
-                sys.exit(0)
+                #sys.exit(0)
                 self.updated = True
                 #return
                 return HttpResponse("")
