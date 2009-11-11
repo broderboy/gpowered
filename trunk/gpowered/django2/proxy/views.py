@@ -51,7 +51,7 @@ class Twitter2gChat:
             #sys.exit(0)
             self.updated = True
             #return
-            self.logger.close()
+            self.logger.handlers[0].close()
             return HttpResponse("")
         
         #print response, don't need to send anything back    
@@ -89,7 +89,7 @@ class Twitter2gChat:
                 #sys.exit(0)
                 self.updated = True
                 #return
-                self.logger.close()
+                self.logger.handlers[0].close()
                 return HttpResponse("")
             else:    
                 curr_status.setData(self.twitter_status)
@@ -119,7 +119,7 @@ class Twitter2gChat:
             #sys.exit(1)
             self.updated = True
             #return
-            self.logger.close()
+            self.logger.handlers[0].close()
             return HttpResponse("")
         if not cl.auth(jid.getNode(),google_pass):
             self.logger.error( 'Can not auth with server %s ' % google_username)
@@ -180,7 +180,8 @@ class Twitter2gChat:
     
     def getlogger(self, username):
         logger = logging.getLogger("%s" % username)
-        hdlr = logging.FileHandler("/home/gpowered/logs/user/twitter2gtalk/%s" % username)
+        hdlr = logging.FileHandler("./%s" % username)
+
         formatter = logging.Formatter('[%(asctime)s]%(levelname)-8s"%(message)s"','%Y-%m-%d %a %H:%M:%S') 
         
         hdlr.setFormatter(formatter)
@@ -227,7 +228,10 @@ class Twitter2gChat:
         while not self.updated:
             self.logger.error( self.updated)
             time.sleep(2)
-        self.logger.close()
+        try:
+            self.logger.handlers[0].close()
+        except:
+            pass
 
 
 def start(request, slug):
