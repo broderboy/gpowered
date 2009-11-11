@@ -227,6 +227,7 @@ class Twitter2gChat:
         while not self.updated:
             self.logger.error( self.updated)
             time.sleep(2)
+        self.logger.close()
 
 
 def start(request, slug):
@@ -235,5 +236,4 @@ def start(request, slug):
     slug = slug.replace('!gp!', '\n')
     t = Twitter2gChat()
     t.loop(slug)
-    self.logger.close()
     return HttpResponse(html)
