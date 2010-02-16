@@ -1,4 +1,0 @@
-cron:
-- description: load the task queue
-  url: /taskloader/
-  schedule: every 60 minutes
