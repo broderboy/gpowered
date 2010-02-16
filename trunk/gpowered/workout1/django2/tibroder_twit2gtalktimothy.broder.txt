@@ -1,0 +1,514 @@
+[2009-11-04 Wed 18:34:29]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:34:29]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:34:29]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:34:29]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:34:30]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:34:30]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:34:30]ERROR   ""
+[2009-11-04 Wed 18:34:30]ERROR   ""
+[2009-11-04 Wed 18:35:40]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:35:40]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:35:41]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:35:41]ERROR   ""
+[2009-11-04 Wed 18:35:46]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:35:46]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:35:46]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:35:46]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:35:46]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:35:46]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:35:46]ERROR   ""
+[2009-11-04 Wed 18:35:46]ERROR   ""
+[2009-11-04 Wed 18:36:33]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:36:33]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:36:33]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:36:33]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:36:33]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:36:34]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:36:34]ERROR   "StepOn"
+[2009-11-04 Wed 18:36:34]ERROR   "StepOn"
+[2009-11-04 Wed 18:36:35]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:36:35]ERROR   "<status>twitter2gtalk will be underoing an overhaul in the coming days to make use of the new crontap and queue API's</status>"
+[2009-11-04 Wed 18:36:35]ERROR   "sending"
+[2009-11-04 Wed 18:36:35]ERROR   "<iq xmlns="jabber:client" type="set" id="3"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:36:35]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:36:35]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:20]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:20]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:20]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:20]ERROR   ""
+[2009-11-04 Wed 18:37:48]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:48]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:48]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:48]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:48]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:49]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:49]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:49]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:49]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:49]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:49]ERROR   "sending"
+[2009-11-04 Wed 18:37:49]ERROR   "<iq xmlns="jabber:client" type="set" id="3"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:49]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:49]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:49]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:49]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/84562DF9" type="set" id="B7211A56"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:49]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:49]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/84562DF9" type="result" id="3" />"
+[2009-11-04 Wed 18:37:49]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:49]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:49]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:49]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:49]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:49]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:49]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:49]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:49]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:49]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:50]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:50]ERROR   "sending"
+[2009-11-04 Wed 18:37:50]ERROR   "sending"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:50]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/E8950765" type="set" id="B7211AAC"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/E8950765" type="set" id="B7211AAC"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/E8950765" type="result" id="6" />"
+[2009-11-04 Wed 18:37:50]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/E8950765" type="result" id="6" />"
+[2009-11-04 Wed 18:37:51]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:51]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:51]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:37:51]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:51]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:51]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:37:51]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:37:51]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:51]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:51]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:51]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:51]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:37:51]ERROR   "sending"
+[2009-11-04 Wed 18:37:51]ERROR   "sending"
+[2009-11-04 Wed 18:37:51]ERROR   "sending"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:51]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:51]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "StepOn"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="set" id="B7211B34"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="set" id="B7211B34"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="set" id="B7211B34"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="result" id="9" />"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="result" id="9" />"
+[2009-11-04 Wed 18:37:51]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/5D29AACA" type="result" id="9" />"
+[2009-11-04 Wed 18:38:14]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:14]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:14]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:14]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:14]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:15]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:15]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:15]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:15]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:15]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:15]ERROR   "sending"
+[2009-11-04 Wed 18:38:15]ERROR   "<iq xmlns="jabber:client" type="set" id="3"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:15]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:15]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:15]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:15]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/8881868E" type="set" id="B72121D1"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:15]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:15]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/8881868E" type="result" id="3" />"
+[2009-11-04 Wed 18:38:16]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:16]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:16]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:16]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:16]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:16]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:16]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:16]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:16]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:16]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:17]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:17]ERROR   "sending"
+[2009-11-04 Wed 18:38:17]ERROR   "sending"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:17]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/4CB7CAB9" type="set" id="B721224E"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/4CB7CAB9" type="set" id="B721224E"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/4CB7CAB9" type="result" id="6" />"
+[2009-11-04 Wed 18:38:17]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/4CB7CAB9" type="result" id="6" />"
+[2009-11-04 Wed 18:38:18]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:18]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:18]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:38:18]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:18]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:18]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:38:18]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:38:18]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:18]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:18]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:18]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:18]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:38:18]ERROR   "sending"
+[2009-11-04 Wed 18:38:18]ERROR   "sending"
+[2009-11-04 Wed 18:38:18]ERROR   "sending"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" type="set" id="9"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:18]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:18]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "StepOn"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="set" id="B72122C5"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="set" id="B72122C5"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:18]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="set" id="B72122C5"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:38:19]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:19]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:19]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:38:19]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="result" id="9" />"
+[2009-11-04 Wed 18:38:19]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="result" id="9" />"
+[2009-11-04 Wed 18:38:19]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/6176C703" type="result" id="9" />"
+[2009-11-04 Wed 18:39:36]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:39:36]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:39:37]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:39:37]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:39:37]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:39:37]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:39:37]ERROR   "StepOn"
+[2009-11-04 Wed 18:39:37]ERROR   "StepOn"
+[2009-11-04 Wed 18:39:38]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:39:38]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:39:38]ERROR   "sending"
+[2009-11-04 Wed 18:39:38]ERROR   "<iq xmlns="jabber:client" type="set" id="3"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:39:38]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:39:38]ERROR   "StepOn"
+[2009-11-04 Wed 18:39:38]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:39:38]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/690882EA" type="set" id="B72139C8"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:39:38]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:39:38]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com/690882EA" type="result" id="3" />"
+[2009-11-04 Wed 18:40:18]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:40:18]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:40:18]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:40:18]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:40:18]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:40:19]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:40:19]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:19]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:19]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:40:19]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:40:19]ERROR   "sending"
+[2009-11-04 Wed 18:40:19]ERROR   "<iq xmlns="jabber:client" type="set" id="3"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:40:19]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:40:19]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:40:25]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:40:25]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:40:25]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:40:25]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:40:25]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:40:25]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:40:25]ERROR   "Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError"
+[2009-11-04 Wed 18:40:25]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:40:25]ERROR   "tibroder@gmail.com"
+[2009-11-04 Wed 18:40:25]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:40:25]ERROR   "<iq xmlns="jabber:client" to="tibroder@gmail.com" type="get"><query xmlns="google:shared-status" /></iq>"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:40:25]ERROR   "in iqHandler"
+[2009-11-04 Wed 18:40:25]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:40:25]ERROR   "<status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status>"
+[2009-11-04 Wed 18:40:25]ERROR   "sending"
+[2009-11-04 Wed 18:40:25]ERROR   "sending"
+[2009-11-04 Wed 18:40:25]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:40:25]ERROR   "<iq xmlns="jabber:client" type="set" id="6"><query xmlns="google:shared-status"><status>Content-Type: text/html; charset=utf-8
+
+urllib2.HTTPError</status><show>default</show><status-list show="default"><status>hi</status><status>final testing</status></status-list></query></iq>"
+[2009-11-04 Wed 18:40:25]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:40:25]ERROR   "end of iqHandler
+
+"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:40:25]ERROR   "StepOn"
+[2009-11-04 Wed 18:41:04]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:04]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:04]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:04]ERROR   ""
+[2009-11-04 Wed 18:41:23]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:23]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:23]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:23]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:23]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:23]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:23]ERROR   ""
+[2009-11-04 Wed 18:41:23]ERROR   ""
+[2009-11-04 Wed 18:41:24]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:24]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:24]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:41:24]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:24]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:24]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:41:24]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:24]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:24]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:41:24]ERROR   ""
+[2009-11-04 Wed 18:41:24]ERROR   ""
+[2009-11-04 Wed 18:41:24]ERROR   ""
+[2009-11-04 Wed 18:45:58]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:45:58]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:45:58]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:45:58]ERROR   ""
+[2009-11-04 Wed 18:46:22]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:46:22]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:46:22]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:46:22]ERROR   ""
+[2009-11-04 Wed 18:48:35]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:48:35]ERROR   "HIIIiiii tibroder"
+[2009-11-04 Wed 18:48:35]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:48:35]ERROR   "http://twitter.com/statuses/user_timeline/twit2gtalktimothy.broder.json?count=1"
+[2009-11-04 Wed 18:48:35]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:48:35]ERROR   "urllib2.HTTPError"
+[2009-11-04 Wed 18:48:35]ERROR   ""
+[2009-11-04 Wed 18:48:35]ERROR   ""
