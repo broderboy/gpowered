@@ -191,7 +191,7 @@ class ListHandler(BaseRequestHandler):
         users = Account.gql('WHERE active = :1 ', True)
         
         for user in users:
-        	ret = ret + '%s!gp!%s!gp!%s!GP!' % (user.user, user.gPass, user.twitter)
+            ret = ret + '%s!gp!%s!gp!%s!GP!' % (user.user, user.gPass, user.twitter)
 
         gae_one = rsa.encrypt(str(ret), gp_pubkey)
         
@@ -238,15 +238,18 @@ class TaskLoader(BaseRequestHandler):
         count = 0
         for user in users:
             #logging.info(user.user)
-            ret = '%s!gp!%s!gp!%s' % (user.user, user.gPass, user.twitter)
-            gae_one = rsa.encrypt(str(ret), gp_pubkey)
-            #logging.debug("WTF %s" % ret)
-            send_key = gae_one.replace('\n', '!gp!')
-            taskqueue.add(url='/worker/', params={'key': send_key})
-            #logging.error("KEY !%s!" % gae_one.replace('\n', '!gp!'))
-            #logging.error("KEY !%d!" % gae_one.find('\n'))
-            logging.debug("USER: %s TWITTER: %s KEY: %s" % (user.user, user.twitter, send_key))
-            count += 1
+            try:
+                ret = '%s!gp!%s!gp!%s' % (user.user, user.gPass, user.twitter)
+                gae_one = rsa.encrypt(str(ret), gp_pubkey)
+                #logging.debug("WTF %s" % ret)
+                send_key = gae_one.replace('\n', '!gp!')
+                taskqueue.add(url='/worker/', params={'key': send_key})
+                #logging.error("KEY !%s!" % gae_one.replace('\n', '!gp!'))
+                #logging.error("KEY !%d!" % gae_one.find('\n'))
+                logging.debug("USER: %s TWITTER: %s KEY: %s" % (user.user, user.twitter, send_key))
+                count += 1
+            except:
+                logging.error("something is fucked with USER: %s TWITTER: %s" % (user.user, user.twitter))
         
         logging.info("Ended load tasks (%d users) %s" % (count, datetime.datetime.now()))
             
